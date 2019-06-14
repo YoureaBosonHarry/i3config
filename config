@@ -157,9 +157,16 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $magenta_colorcode #FF00FF
+set $cyan_colorcode #00ffff
+set $black_colorcode #000000
+set $white_colorcode #FFFFFF
+set $blue1_colorcode #285577
+set $blue2_colorcode #2E9EF4
+
 # change wm colors
-# class                 border  bground text    indicator child_border
-client.focused          #000000 #285577 #FFFFFF #2E9EF4   #F000F0
+# class                 border            bground          text             indicator        child_border
+client.focused          $black_colorcode  $blue1_colorcode $white_colorcode $blue2_colorcode $magenta_colorcode
 client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
 client.unfocused        #333333 #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
@@ -178,10 +185,11 @@ bar {
                 background #333333
                 statusline #FFFFFF
                 separator  #FF9955
-                focused_workspace #2E9AFE #2E9AFE #000000
-                active_workspace  #333333 #333333 #7F7F7F
-                inactive_workspace #333333 #333333 #7F7F7F
-                urgent_workspace #000000 #000000 #900000
+                # class            border             bground            text
+                focused_workspace  $cyan_colorcode    $magenta_colorcode $black_colorcode
+                active_workspace   $cyan_colorcode    $magenta_colorcode $black_colorcode
+                inactive_workspace $magenta_colorcode $cyan_colorcode    $black_colorcode
+                urgent_workspace   $black_colorcode   $black_colorcode   #900000
            }
 }
 
