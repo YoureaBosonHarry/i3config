@@ -1,3 +1,6 @@
+set $default_term st
+set $default_editor emacs
+
 # i3 config file (v4)
 #
 for_window [class="^.*"] border pixel 2
@@ -30,7 +33,10 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec $default_term
+
+# start text editor
+bindsym $mod+e exec $default_editor
 
 # paste git cli token
 bindsym $mod+g exec /home/gentooben/.config/i3/scripts/gitcli.sh
@@ -72,7 +78,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
